@@ -4,11 +4,30 @@
 ## AIM
 To develop a Python program to find the optimal policy for the given RL environment using SARSA-Learning and compare the state values with the Monte Carlo method.
 ## PROBLEM STATEMENT
-Explain the problem statement.
+The problem statement is a Five stage slippery walk where there are five stages excluding goal and hole.The problem is stochastic thus doesnt allow transition probability of 1 for each action it takes.It changes according to the state and policy.
+
+State Space:
+The states include two terminal states: 0-Hole[H] and 6-Goal[G]. It has five non terminal states includin starting state.
+
+Action Space:
+Left:0 Right:1
+
+Transition probability:
+The transition probabilities for the problem statement is: 50% - The agent moves in intended direction. 33.33% - The agent stays in the same state. 16.66% - The agent moves in orthogonal direction.
+
+Reward:
+To reach state 7 (Goal) : +1 otherwise : 0
 
 ## SARSA LEARNING ALGORITHM
-Include the steps involved in the SARSA Learning algorithm
 
+1. Initialize Q-table with zeros, where each row represents a state, and each column represents an action.
+2. Define an epsilon-greedy strategy to select actions: With probability epsilon, choose a random action, otherwise choose the action with the highest Q-value for the current state.
+3. Set up learning rate (alpha) and exploration rate (epsilon) decay schedules for gradually reducing these parameters over episodes.
+4. Loop through a fixed number of episodes (n_episodes), initializing the environment and setting the initial state and action.
+5. In each episode, interact with the environment by taking actions, observing rewards, and transitioning to the next state until the episode terminates.
+6. Update the Q-values using the SARSA update rule, incorporating the observed reward and the estimated future Q-value of the next state-action pair.
+7. Track the Q-values, policy, and other information over episodes and return the final Q-values, state values (V), policy (pi), Q-value history (Q_track), and policy history (pi_track).
+   
 ## SARSA LEARNING FUNCTION
 ### Name:MITHUN M S
 ### Register Number:212222240067
@@ -67,5 +86,4 @@ def sarsa(env,
 
 
 ## RESULT:
-
-Write your result here
+Thus, the implementation of SARSA learning algorithm was implemented successfully.
